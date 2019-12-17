@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {NotesResponse} from "../models/NotesResponse"
 
 @Component({
   selector: 'app-notes',
@@ -13,7 +14,7 @@ export class NotesComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   public getNotes(){
-    return this.httpClient.get(`https://todoloop.appspot.com/getNotes?uuid=d090073b-7d21-4536-9c1c-8090499c5aab`); 
+    return this.httpClient.get(`https://todoloop.appspot.com/getNotes?uuid=b9496d65-da7b-4c7f-896b-8d7d1cf84a41`); 
   }
 
   ngOnInit() {

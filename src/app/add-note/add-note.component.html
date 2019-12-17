@@ -1,0 +1,13 @@
+<mat-card class="my-class-name">
+        <mat-card-title>Add a New Note</mat-card-title>
+        <br>
+        <form (ngSubmit)="onSubmit()" class="example-form">
+                <mat-form-field class="example-full-width">
+                  <input matInput id="title" placeholder="Note Title" value="Title"  [(ngModel)]="model.title" name="title">
+                </mat-form-field>
+                <br>
+                <button md-button class="submit-btn" type="submit">Save Changes</button>
+        </form>
+
+
+</mat-card>
