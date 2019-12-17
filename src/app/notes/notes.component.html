@@ -1,0 +1,7 @@
+
+        <mat-card class="my-class-name" *ngFor="let note of notes">
+            <mat-card-title>{{note.title}}</mat-card-title>
+            <div class="my-class-name" *ngFor="let task of tasks">
+                    <div *ngIf="task.parentId == note.id"><mat-card class="my-class-task-name center">{{task.content}}</mat-card></div>
+                    </div>
+        </mat-card>

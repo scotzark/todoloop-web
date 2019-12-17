@@ -1,0 +1,20 @@
+.center {
+    margin: auto;
+    width: 50%;
+    border: 1px solid blue;
+    padding: 10px;
+  }
+
+.my-class-name{
+    margin: auto;
+    margin-bottom: 10px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-class-task-name{
+    margin-bottom: 10px;
+    width: 200px;
+    background-color: turquoise;
+}
