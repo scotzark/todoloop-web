@@ -6,8 +6,10 @@
                   <input matInput id="title" placeholder="Note Title" value="Title"  [(ngModel)]="model.title" name="title">
                 </mat-form-field>
                 <br>
+                <mat-form-field class="example-full-width">
+                                <input matInput id="task" placeholder="Task" value="Task"  [(ngModel)]="task.content" name="content">
+                              </mat-form-field>
+                <br>
                 <button md-button class="submit-btn" type="submit">Save Changes</button>
         </form>
-
-
 </mat-card>
