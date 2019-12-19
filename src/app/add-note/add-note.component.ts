@@ -18,6 +18,7 @@ export class AddNoteComponent implements OnInit {
 
   model = new Note();
   task = new Task();
+  tasks = new Array<Task>();
 
   url = "https://todoloop.appspot.com/addNote"
   
@@ -30,6 +31,25 @@ export class AddNoteComponent implements OnInit {
   ); 
   }
 
+  addTask(){
+    console.log("add task");
+    var newTask = new Task();
+    newTask.content = this.task.content;
+    this.tasks.push(newTask);
+  }
+
+  createTask(taskInfo) : Task
+  {
+    var task = new Task();
+    task.createTime = this.model.createTime;
+    task.modifyTime = this.model.modifyTime;
+    task.uuid = this.model.uuid;
+    task.taskId = uuid();
+    task.parentId = this.model.id;
+    task.content = taskInfo.content;
+    return task;
+  }
+
   ngOnInit() {
   }
 
@@ -39,18 +59,20 @@ export class AddNoteComponent implements OnInit {
     this.model.modifyTime = Date.now();
     this.model.uuid = "b9496d65-da7b-4c7f-896b-8d7d1cf84a41";
 
-    this.task.createTime = this.model.createTime;
-    this.task.modifyTime = this.model.modifyTime;
-    this.task.uuid = this.model.uuid;
-    this.task.taskId = uuid();
-    this.task.parentId = this.model.id;
-
-    console.log(this.task);
-
     var note = new AddNote();
     note.note = this.model;
-    note.tasks = [this.task];
+
+    var taskList = new Array<Task>();
+
+    this.tasks.forEach( (element) => {
+      console.log(element);
+      var task = this.createTask(element);
+      taskList.push(task);
+    });
+
+    note.tasks = taskList;
 
     return this.httpClient.post<NotesResponse>(this.url, note);
   }
+
 }

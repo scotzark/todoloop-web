@@ -7,9 +7,14 @@
                 </mat-form-field>
                 <br>
                 <mat-form-field class="example-full-width">
-                                <input matInput id="task" placeholder="Task" value="Task"  [(ngModel)]="task.content" name="content">
-                              </mat-form-field>
+                        <input matInput id="task" placeholder="Task" value="Task"  [(ngModel)]="task.content" name="content">
+                </mat-form-field>
+                <i (click)="addTask()" class="material-icons">check_circle</i>
                 <br>
+                <mat-list *ngFor="let task of tasks">
+                <mat-list-item>{{task.content}}</mat-list-item>
+                </mat-list>
+
                 <button md-button class="submit-btn" type="submit">Save Changes</button>
         </form>
 </mat-card>

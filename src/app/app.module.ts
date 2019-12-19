@@ -17,7 +17,8 @@ import {
   MatInputModule,
   MatOptionModule, 
   MatSelectModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatListModule
 } from '@angular/material';
 import { AddNoteComponent } from './add-note/add-note.component';
 
@@ -40,6 +41,7 @@ import { AddNoteComponent } from './add-note/add-note.component';
     MatSelectModule,
     MatIconModule,
     MatCardModule,
+    MatListModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -52,6 +54,7 @@ import { AddNoteComponent } from './add-note/add-note.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    MatListModule,
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule
