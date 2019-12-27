@@ -6,6 +6,8 @@ import { NotesResponse } from '../models/NotesResponse';
 import { AddNote } from '../models/AddNote';
 import { Task } from '../models/Task';
 import { v4 as uuid } from 'uuid';
+import { MatDialog, MatDialogRef} from '@angular/material';
+
 
 @Component({
   selector: 'app-add-note',
@@ -14,7 +16,7 @@ import { v4 as uuid } from 'uuid';
 })
 export class AddNoteComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private dialogRef: MatDialogRef<AddNoteComponent>) { }
 
   model = new Note();
   task = new Task();
@@ -24,6 +26,7 @@ export class AddNoteComponent implements OnInit {
   
 
   onSubmit() { 
+    this.dialogRef.close();
     this.addNote().subscribe(
       response => {
         console.log(response);

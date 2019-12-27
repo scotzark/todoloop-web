@@ -19,3 +19,8 @@
     width: 400px;
     background-color: turquoise;
 }
+
+.material-icons.md-16 { 
+    font-size: 16px; 
+    align: flex-end
+}

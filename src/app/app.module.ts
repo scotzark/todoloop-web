@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AddNoteComponent } from './add-note/add-note.component';
 
 import {
   MatButtonModule,
@@ -18,10 +19,9 @@ import {
   MatOptionModule, 
   MatSelectModule,
   MatFormFieldModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule
 } from '@angular/material';
-import { AddNoteComponent } from './add-note/add-note.component';
-
 
 @NgModule({
   declarations: [
@@ -42,6 +42,7 @@ import { AddNoteComponent } from './add-note/add-note.component';
     MatIconModule,
     MatCardModule,
     MatListModule,
+    MatDialogModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -56,10 +57,12 @@ import { AddNoteComponent } from './add-note/add-note.component';
     MatCardModule,
     MatListModule,
     MatFormFieldModule,
+    MatDialogModule,
     FormsModule,
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddNoteComponent]
 })
 export class AppModule { }
