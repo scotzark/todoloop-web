@@ -1,21 +1,19 @@
-import { Component } from '@angular/core';
-import { AddNoteComponent } from './add-note/add-note.component';
-import { MatDialog, MatDialogRef} from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'todoloop';
 
-  addNoteRef: MatDialogRef<AddNoteComponent>;
+  constructor(private cookieService: CookieService) {}
 
-  constructor(private dialog: MatDialog) {}
-
-  addNote()
-  {
-    let addNoteRef = this.dialog.open(AddNoteComponent);
+  ngOnInit() {
+    this.cookieService.set("cookie1", "test");
+    console.log(this.cookieService.get("cookie1"));
   }
+
 }

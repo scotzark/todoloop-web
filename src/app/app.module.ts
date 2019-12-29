@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AddNoteComponent } from './add-note/add-note.component';
+import {CookieService} from 'ngx-cookie-service';
 
 import {
   MatButtonModule,
@@ -22,12 +23,16 @@ import {
   MatListModule,
   MatDialogModule
 } from '@angular/material';
+import { AccountControllerComponent } from './account-controller/account-controller.component';
+import { DashBoardComponent } from './dash-board/dash-board.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesComponent,
-    AddNoteComponent
+    AddNoteComponent,
+    AccountControllerComponent,
+    DashBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +66,7 @@ import {
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
   entryComponents: [AddNoteComponent]
 })

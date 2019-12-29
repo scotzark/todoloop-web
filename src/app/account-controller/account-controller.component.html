@@ -1,0 +1,11 @@
+<mat-card class="my-class-name">
+        <mat-card-title>Login</mat-card-title>
+        <br>
+        <form (ngSubmit)="onSubmit()" class="example-form">
+                <mat-form-field class="example-full-width">
+                  <input matInput id="email" placeholder="Email Address" value="Title"  [(ngModel)]="email" name="email">
+                </mat-form-field>
+                <br>
+                <button md-button class="submit-btn" type="submit">Login</button>
+        </form>
+</mat-card>

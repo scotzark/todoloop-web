@@ -7,7 +7,8 @@ import { AddNote } from '../models/AddNote';
 import { Task } from '../models/Task';
 import { v4 as uuid } from 'uuid';
 import { MatDialog, MatDialogRef} from '@angular/material';
-
+import {environment} from "../Environment";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-add-note',
@@ -16,14 +17,11 @@ import { MatDialog, MatDialogRef} from '@angular/material';
 })
 export class AddNoteComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private dialogRef: MatDialogRef<AddNoteComponent>) { }
+  constructor(private httpClient: HttpClient, private cookieService: CookieService, private dialogRef: MatDialogRef<AddNoteComponent>) { }
 
   model = new Note();
   task = new Task();
-  tasks = new Array<Task>();
-
-  url = "https://todoloop.appspot.com/addNote"
-  
+  tasks = new Array<Task>(); 
 
   onSubmit() { 
     this.dialogRef.close();
@@ -60,7 +58,7 @@ export class AddNoteComponent implements OnInit {
     this.model.id = uuid();
     this.model.createTime  = Date.now();
     this.model.modifyTime = Date.now();
-    this.model.uuid = "b9496d65-da7b-4c7f-896b-8d7d1cf84a41";
+    this.model.uuid = this.cookieService.get("uuid");
 
     var note = new AddNote();
     note.note = this.model;
@@ -75,7 +73,7 @@ export class AddNoteComponent implements OnInit {
 
     note.tasks = taskList;
 
-    return this.httpClient.post<NotesResponse>(this.url, note);
+    return this.httpClient.post<NotesResponse>(environment.apiUrl+"addNote", note);
   }
 
 }

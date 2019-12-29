@@ -4,6 +4,8 @@ import {NotesResponse} from "../models/NotesResponse"
 import {Note} from "../models/Note";
 import {Task} from "../models/Task";
 import { AddNote } from '../models/AddNote';
+import {environment} from "../Environment";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-notes',
@@ -17,17 +19,19 @@ export class NotesComponent implements OnInit {
 
   url = "https://todoloop.appspot.com/"
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private cookieService: CookieService) { }
 
   public getNotes(){
-    return this.httpClient.get(`https://todoloop.appspot.com/getNotes?uuid=b9496d65-da7b-4c7f-896b-8d7d1cf84a41`); 
+    let param: any = {'uuid': this.cookieService.get("uuid")};
+    let requestUrl = environment.apiUrl+"getNotes";
+    return this.httpClient.get(requestUrl, {params: param}); 
   }
 
   deleteNote(note: Note) {
     let deleteNote = new AddNote();
     deleteNote.note = note;
     deleteNote.tasks = this.tasks;
-    this.httpClient.post<NotesResponse>(this.url+"deleteNote", deleteNote).subscribe(
+    this.httpClient.post<NotesResponse>(environment.apiUrl+"deleteNote", deleteNote).subscribe(
       response => {
         console.log(response);
         this.ngOnInit();
@@ -35,7 +39,7 @@ export class NotesComponent implements OnInit {
   }
 
   deleteTask(task: Task) {
-    this.httpClient.post<NotesResponse>(this.url+"deleteTask", task).subscribe(
+    this.httpClient.post<NotesResponse>(environment.apiUrl+"deleteTask", task).subscribe(
       response => {
         console.log(response);
         this.ngOnInit();
