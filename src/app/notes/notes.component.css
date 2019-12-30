@@ -8,15 +8,20 @@
 .my-class-name{
     margin: auto;
     margin-bottom: 10px;
-    width: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
     justify-content: center;
     align-items: center;
     background-color: lightblue;
 }
 
 .my-class-task-name{
+    margin: auto;
     margin-bottom: 10px;
-    width: 400px;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
     background-color: turquoise;
 }
 

@@ -2,7 +2,7 @@
         <mat-card class="my-class-name" *ngFor="let note of notes">
             <mat-card-title>{{note.title}}</mat-card-title>
             <div class="my-class-name" *ngFor="let task of tasks">
-                    <div *ngIf="task.parentId == note.id"><mat-card class="my-class-task-name center">
+                    <div *ngIf="task.parentId == note.id"><mat-card class="my-class-task-name">
                             {{task.content}}
                             <mat-card-actions align="end">
                             <button (click)="deleteTask(task)" mat-icon-button>
@@ -13,10 +13,6 @@
                 </div>
                     </div>
                     <mat-card-actions align="end">
-                        <button mat-icon-button>
-                            <mat-icon>mode_edit</mat-icon>
-                        </button>
-
                         <button (click)="deleteNote(note)" mat-icon-button>
                             <mat-icon>delete</mat-icon>
                         </button>

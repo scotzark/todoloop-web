@@ -37,6 +37,7 @@ export class AddNoteComponent implements OnInit {
     var newTask = new Task();
     newTask.content = this.task.content;
     this.tasks.push(newTask);
+    this.task.content = "";
   }
 
   createTask(taskInfo) : Task

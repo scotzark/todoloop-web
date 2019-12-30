@@ -1,0 +1,21 @@
+runtime: python27
+threadsafe: true
+api_version: 1
+
+handlers:
+
+  - url: /
+    static_files: dist/todoloop/index.html
+    upload: dist/todoloop/index.html
+  - url: /
+    static_dir: dist/todoloop
+
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE
